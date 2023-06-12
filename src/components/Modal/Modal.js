@@ -25,6 +25,7 @@ class Modal extends Component {
 
   render() {
     const { children } = this.props;
+    if (!this.props.show) return null;
     return createPortal(
       <div onClick={this.handleBackdropClick} className="Overlay">
         <div className="Modal">{children}</div>
@@ -37,5 +38,6 @@ export default Modal;
 
 Modal.protoType = {
   onClose: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
 };
